@@ -188,7 +188,9 @@ app.js
 ```js
 const express = require('express');
 const app = express();
-app.get('*', (req, res) => res.status(200).json('Hello World!'));
+app.get('*', (req, res) => {
+    res.status(200).json('Hello World!');
+})
 app.listen(80);
 ```
 package.json
