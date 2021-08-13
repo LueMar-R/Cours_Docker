@@ -1,6 +1,6 @@
 # Connecter un serveur Node.js et une bdd MongoDB
 
-*Lancement sans dockerfile*
+*Lancement sans docker-compose*
 
 <hr>
 
