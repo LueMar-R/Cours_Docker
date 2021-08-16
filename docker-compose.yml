@@ -6,6 +6,7 @@ services:
 #    environment:             # pour l'initalisation de le bdd au premier d-c run
 #      - MONGO_INITDB_ROOT_USERNAME
 #      - MONGO_INITDB_ROOT_PASSWORD
+    restart: unless-stopped
     volumes:
       - type: volume
         source: mydata
@@ -20,6 +21,7 @@ services:
     environment:
       - MONGO_PWD 
       - MONGO_USERNAME
+    restart: unless-stopped
     ports:
       - "8081:80"
     volumes:
@@ -28,6 +30,8 @@ services:
         target: /app/src/
     networks:
       - mynetwork
+    depends_on:
+      - db
 
 volumes:
   mydata:
