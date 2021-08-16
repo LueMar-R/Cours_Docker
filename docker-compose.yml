@@ -3,6 +3,9 @@ version: "3.8"
 services:
   db:
     image: mongo:latest
+#    environment:             # pour l'initalisation de le bdd au premier d-c run
+#      - MONGO_INITDB_ROOT_USERNAME
+#      - MONGO_INITDB_ROOT_PASSWORD
     volumes:
       - type: volume
         source: mydata
@@ -14,6 +17,9 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+    environment:
+      - MONGO_PWD 
+      - MONGO_USERNAME
     ports:
       - "8081:80"
     volumes:

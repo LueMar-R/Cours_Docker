@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient;
 const app = express();
 
 MongoClient.connect(
-    'mongodb://db',
+    `mongodb://${ process.env.MONGO_USERNAME }:${process.env.MONGO_PWD }@db`,
     { useUnifiedTopology: true },
     (err, client) => {
       if (err) {
